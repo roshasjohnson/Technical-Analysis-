@@ -32,7 +32,7 @@
 
 
 
-1. Run the main script:
+1. Run the following scripts in order:
 
     ```bash
     python3 reddit_scraper.py
