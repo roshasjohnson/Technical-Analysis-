@@ -7,6 +7,7 @@
 1. Clone the repository:
     ```bash
     git clone https://github.com/roshasjohnson/Technical-Analysis-.git
+     
     ```
 2. Navigate to the project directory:
     ```bash
@@ -18,7 +19,7 @@
     ```
 4. Set up API keys:
         - Obtain the necessary API keys from the News API
-        - Create a `.env` file in the project directory and add the keys in the following format:
+        - Edit the `.env` file in the project directory and add the keys in the following format:
 
             ```
             API_KEY=your_news_api_key
