@@ -1,6 +1,6 @@
 import requests
 import json
-
+import pandas as pd
 
 URL  = "https://www.reddit.com"
 SUBREDDIT= "technology"
@@ -37,17 +37,26 @@ def extract_reddit_data(data):
     """
     extracted_data = []
     
+    print("Extracting data...")
+    print("It may take a while.")
     
     for post in data['data']['children']:
         title = post['data']['title']
-        url   = URL + post['data']['permalink']
-        print(url)
-
+        url = URL + post['data']['permalink']
+        upvotes = post['data'].get('ups', 0)
+        comments_count = post['data'].get('num_comments', 0)
+        
+        # Add the extracted data to the list
+        extracted_data.append({
+            'title': title,
+            'url': url,
+            'upvotes': upvotes,
+            'comments_count': comments_count
+        })
         
         
-    
-    
         
+    return extracted_data
     
     
     
@@ -56,6 +65,12 @@ def load_to_excel(data):
     """
     Save the extracted data to an Excel file.
     """
+    
+    
+    df = pd.DataFrame(data)
+    df.to_excel('data/reddit_data.xlsx', index=False)
+    print("Data saved to reddit_data.xlsx")
+    
     
 
 

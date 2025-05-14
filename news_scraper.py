@@ -6,7 +6,7 @@ from dotenv import load_dotenv
     
 load_dotenv()
 
-API_KEY  = os.getenv("API_KEY")
+API_KEY  = "c44081af318d4adf81016ca133e11dc0"
 
 
 
@@ -59,6 +59,7 @@ def call_news_apis(keywords):
     
     news_set = []
     
+    print("Calling News API... It may take a while.")
     
     for keyword in keywords:
         
@@ -81,11 +82,9 @@ def call_news_apis(keywords):
                             'published_date': article['publishedAt'],
                             'article_url': article['url']
                         })
-                        print(f"Keyword: {keyword}")
-                        print(f"Title: {article['title']}, Source: {article['source']['name']}, Published Date: {article['publishedAt']}, URL: {article['url']}")
+                    
 
-                    print(f"Total articles for keyword '{keyword}': {len(articles)}")
-                    print("-------------------------------")
+                
                     
                 else:
                 

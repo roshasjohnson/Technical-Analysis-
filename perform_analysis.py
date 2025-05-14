@@ -21,6 +21,7 @@ def clean_data(reddit_df, news_df):
 def match_titles(reddit_df, news_df):
     def match_news_title(reddit_title, news_titles):
         matches = get_close_matches(reddit_title, news_titles, n=1, cutoff=0.3)
+        print(matches)
         return matches[0] if matches else None
 
     reddit_df['matched_news_title'] = reddit_df['title'].apply(
